@@ -1,0 +1,38 @@
+apply plugin: 'com.android.library'
+apply from: rootProject.file('libbase.gradle')
+
+dependencies {
+    api dependence.libSupportV7
+    api dependence.libSupportV4
+
+    api dependence.libKotlinJre7
+    api dependence.libDesign
+
+    api dependence.libRetrofit
+    api dependence.libRetrofitConvert
+    api dependence.libRetrofitAdapter
+
+    api dependence.libOkhttp
+    api dependence.libokhttp3LoggingInterceptor
+
+    api dependence.libRxAndroid
+    api dependence.libRxkotlin
+    api dependence.libRxlifecycle2
+    api dependence.libRxlifecycle2Components
+
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+    api dependence.libDagger
+    api dependence.libLogger
+
+    api dependence.libRhinoAndroid
+    api dependence.libAnkoSqlite
+
+    api dependence.libArouter
+
+    api dependence.libRecyclerview
+    api dependence.libLRecyclerView
+    kapt "com.github.bumptech.glide:compiler:$glide_version"
+    api dependence.libGlide
+
+    api dependence.libBottomBar
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+            icon="@drawable/icon_gank"
+            id="@+id/tab_gank"
+            title="干货"
+            barColorWhenSelected="#d63d34"/>
+    <tab
+            icon="@drawable/icon_summer"
+            id="@+id/tab_summer"
+            title="校园"
+            barColorWhenSelected="#ffc522"/>
+</tabs>

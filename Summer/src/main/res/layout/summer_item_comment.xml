@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/dp_6"
+                android:paddingBottom="@dimen/dp_6"
+                android:paddingStart="@dimen/dp_12"
+                android:paddingEnd="@dimen/dp_16">
+
+    <ImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="@dimen/dp_48"
+            android:layout_height="@dimen/dp_48"/>
+
+    <TextView
+            android:id="@+id/tv_nick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Summer-小夏"
+            android:maxLines="1"
+            android:layout_marginTop="@dimen/dp_4"
+            android:textSize="@dimen/sp_12"
+            android:textColor="@color/common_black"
+            android:layout_toEndOf="@id/iv_avatar"
+            android:layout_marginStart="@dimen/dp_8"/>
+
+    <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/iv_avatar"
+            android:layout_marginStart="@dimen/dp_8"
+            android:layout_below="@id/tv_nick"
+            android:layout_marginTop="@dimen/dp_4"
+            android:text="fdasfdasfdasfasfdasfsd"
+            android:textSize="@dimen/sp_14"/>
+
+    <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/iv_avatar"
+            android:layout_marginStart="@dimen/dp_8"
+            android:layout_below="@id/tv_content"
+            android:layout_marginTop="@dimen/dp_8"
+            android:text="0分钟前"
+            android:textSize="@dimen/sp_10"/>
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/dp_40"
+            android:layout_below="@id/tv_content"
+            android:layout_marginTop="@dimen/dp_8"
+            android:src="@drawable/icon_like_small"/>
+
+    <TextView
+            android:id="@+id/tv_like_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/dp_24"
+            android:layout_below="@id/tv_content"
+            android:layout_marginTop="@dimen/dp_8"
+            android:text="0"
+            android:textSize="@dimen/sp_10"/>
+</RelativeLayout>

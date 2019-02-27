@@ -1,0 +1,23 @@
+apply plugin: 'com.yichen.comswitch'
+apply from: rootProject.file('libbase.gradle')
+
+kapt {
+    arguments {
+        arg("moduleName", project.getName())
+    }
+}
+
+android {
+    resourcePrefix "summer_"
+}
+
+dependencies {
+    implementation project(':Provider')
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+    kapt "com.alibaba:arouter-compiler:$arouter_compiler_version"
+}
+
+combuild {
+    applicationName = 'com.yichen.summer.app.SummerApplication'
+    isRegisterAuto = false
+}

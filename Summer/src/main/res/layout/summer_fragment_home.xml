@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <View android:layout_width="match_parent"
+          android:layout_height="@dimen/padding_top"
+          android:background="@color/summer_yellow"
+          android:elevation="@dimen/dp_4"/>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_46"
+            android:background="@color/common_yellow"
+            android:elevation="@dimen/dp_4">
+
+        <ImageView
+                android:id="@+id/iv_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/dp_14"
+                android:src="@drawable/toolbar_search_icon"/>
+
+        <android.support.design.widget.TabLayout
+                android:layout_centerHorizontal="true"
+                android:paddingBottom="@dimen/dp_1"
+                android:id="@+id/mSummerTabLayout"
+                android:layout_width="@dimen/dp_240"
+                android:layout_height="match_parent"
+                app:tabGravity="center"
+                app:tabIndicatorColor="@color/common_white"
+                app:tabIndicatorFullWidth="false"
+                app:tabIndicatorHeight="@dimen/dp_3"
+                app:tabMode="fixed"
+                app:tabSelectedTextColor="@color/common_black"
+                app:tabTextColor="@color/common_gray"
+                app:tabTextAppearance="@style/TabLayoutTextStyle"/>
+
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+            android:id="@+id/mSummerViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+</LinearLayout>

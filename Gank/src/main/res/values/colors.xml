@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="gank_colorPrimary">#3F51B5</color>
+    <color name="gank_colorPrimaryDark">#303F9F</color>
+    <color name="gank_colorAccent">#FF4081</color>
+
+    <color name="gank_colorSearchShape">#eae9ea</color>
+
+
+    <color name="gank_colorItemTitle">#646162</color>
+
+    <!--下拉刷新控件颜色 -->
+    <color name="gank_colorRefresh">#ea3471</color>
+    <color name="gank_colorSearchItemBtn">#e29a0a</color>
+    <color name="gank_colorHistoryItemBG">#eff2f2</color>
+
+
+</resources>

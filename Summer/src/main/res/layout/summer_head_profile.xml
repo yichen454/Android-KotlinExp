@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_260">
+
+    <ImageView
+            android:id="@+id/iv_head_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"/>
+    <ImageView
+            android:id="@+id/iv_avatar"
+            android:layout_marginTop="@dimen/dp_52"
+            android:layout_centerHorizontal="true"
+            android:layout_width="@dimen/dp_84"
+            android:layout_height="@dimen/dp_84"/>
+
+    <ImageView
+            android:id="@+id/iv_relationship"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/relation_status_single"
+            android:layout_alignEnd="@id/iv_avatar"
+            android:layout_alignBottom="@id/iv_avatar"/>
+
+    <TextView
+            android:id="@+id/tv_name"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/iv_avatar"
+            android:layout_marginTop="@dimen/dp_8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Summer"
+            android:textSize="@dimen/sp_14"
+            android:textStyle="bold"
+            android:textColor="@color/common_black"/>
+
+    <TextView
+            android:id="@+id/tv_birth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="♀ 21 双子座"
+            android:layout_marginTop="@dimen/dp_4"
+            android:paddingStart="@dimen/dp_2"
+            android:paddingEnd="@dimen/dp_3"
+            android:background="@drawable/summer_shape_fillet"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/tv_name"
+            android:textSize="@dimen/sp_12"
+            android:textColor="@color/common_white"/>
+
+    <TextView
+            android:id="@+id/tv_bio"
+            android:layout_marginTop="@dimen/dp_6"
+            android:layout_below="@id/tv_birth"
+            android:layout_width="wrap_content"
+            android:maxWidth="@dimen/dp_260"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_height="@dimen/dp_40"
+            android:text="Summer官方账号"
+            android:maxLines="2"
+            android:textColor="@color/common_black"/>
+    <ImageView
+            android:layout_toStartOf="@id/tv_bio"
+            android:layout_alignTop="@id/tv_bio"
+            android:layout_marginEnd="@dimen/dp_8"
+            android:layout_marginTop="@dimen/dp_8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/left_quotation_icon"/>
+
+    <ImageView
+            android:layout_toEndOf="@id/tv_bio"
+            android:layout_alignTop="@id/tv_bio"
+            android:layout_marginStart="@dimen/dp_8"
+            android:layout_marginTop="@dimen/dp_8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/right_quotation_icon"/>
+</RelativeLayout>

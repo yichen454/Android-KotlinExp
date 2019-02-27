@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/dp_42">
+
+    <TextView
+            android:id="@+id/item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="item"
+            android:layout_centerVertical="true"
+            android:textColor="@color/common_black"
+            android:textSize="@dimen/sp_13"
+            android:layout_marginStart="@dimen/dp_14"/>
+
+    <com.yichen.summer.widgets.flowlayout.SQLFlowLayout
+            android:id="@+id/flow"
+            android:paddingTop="@dimen/dp_8"
+            android:paddingBottom="@dimen/dp_8"
+            android:layout_width="@dimen/dp_220"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/dp_14"
+            android:layout_centerVertical="true"
+            android:layout_height="wrap_content"/>
+
+    <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/textGray"/>
+</RelativeLayout>

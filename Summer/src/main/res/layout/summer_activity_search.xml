@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/LightGray">
+    <View android:layout_width="match_parent"
+          android:layout_height="@dimen/padding_top"
+          android:background="@color/summer_yellow"/>
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_48"
+                    android:background="@color/summer_yellow">
+
+        <ImageView
+                android:id="@+id/iv_back"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_14"
+                android:src="@drawable/toolbar_back_icon"/>
+
+        <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:maxWidth="@dimen/dp_240"
+                android:maxLines="1"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_18"
+                android:layout_centerInParent="true"
+                android:textColor="@color/common_black"
+                android:text="搜索"/>
+    </RelativeLayout>
+
+    <RadioGroup
+            android:id="@+id/radio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+        <RadioButton
+                android:id="@+id/rb_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="黑板墙"
+                android:checked="true"
+                android:textSize="@dimen/sp_14"
+                android:textColor="@color/summer_selector_search"/>
+
+        <RadioButton
+                android:id="@+id/rb_secret"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="兔子洞" android:textSize="@dimen/sp_14"
+                android:textColor="@color/summer_selector_search"/>
+
+        <RadioButton
+                android:id="@+id/rb_activity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="校内" android:textSize="@dimen/sp_14"
+                android:textColor="@color/summer_selector_search"/>
+    </RadioGroup>
+
+    <android.support.v7.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:iconifiedByDefault="false"
+            app:queryHint="请输入不超过10个关键字"/>
+
+    <com.github.jdsjlzx.recyclerview.LRecyclerView
+            android:id="@+id/searchRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+</LinearLayout>

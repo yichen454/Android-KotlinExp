@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <android.support.design.widget.AppBarLayout
+            android:id="@+id/headRoot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/common_white">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/collapsingTbl"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/transparent"
+                app:contentScrim="@color/summer_yellow"
+                app:toolbarId="@id/toolbar"
+                app:titleEnabled="false"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <include layout="@layout/summer_head_profile"/>
+
+            <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_marginTop="@dimen/padding_top"
+                    app:layout_collapseMode="pin">
+
+                <RelativeLayout android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                    <ImageView
+                            android:id="@+id/iv_back"
+                            android:layout_centerVertical="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/toolbar_back_icon"/>
+
+                    <TextView
+                            android:id="@+id/tv_title"
+                            android:layout_width="wrap_content"
+                            android:maxWidth="@dimen/dp_240"
+                            android:maxLines="1"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/sp_18"
+                            android:layout_centerInParent="true"
+                            android:alpha="0"
+                            android:textColor="@color/common_black"
+                            android:text="Summer"/>
+                </RelativeLayout>
+            </android.support.v7.widget.Toolbar>
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:background="@color/common_white"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <android.support.design.widget.TabLayout
+                    android:id="@+id/mTabLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_36"
+                    app:tabIndicatorColor="@color/summer_yellow"
+                    app:tabIndicatorFullWidth="false"
+                    app:tabIndicatorHeight="@dimen/dp_2"
+                    app:tabMode="fixed"
+                    app:tabSelectedTextColor="@color/summer_yellow"
+                    app:tabTextColor="@color/common_black"
+                    app:tabTextAppearance="@style/Summer_ProfileTabLayoutTextStyle"/>
+
+            <android.support.v4.view.ViewPager
+                    android:id="@+id/mViewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

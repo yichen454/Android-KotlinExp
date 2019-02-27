@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Gank_TabLayoutTextStyle">
+        <item name="android:textSize">@dimen/sp_18</item>
+    </style>
+</resources>

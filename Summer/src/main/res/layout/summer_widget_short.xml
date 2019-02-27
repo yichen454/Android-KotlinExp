@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/ll_sort"
+              android:orientation="horizontal"
+              android:layout_width="@dimen/dp_72"
+              android:layout_height="@dimen/dp_24"
+              android:background="@drawable/summer_bg_sort">
+
+    <TextView
+            android:id="@+id/tv_sort_top"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="热门"
+            android:textSize="@dimen/sp_12"
+            android:gravity="center"
+            android:background="@drawable/summer_selector_sort"
+            android:textColor="@color/summer_selector_sort"/>
+
+    <TextView
+            android:id="@+id/tv_sort_time"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="最新"
+            android:textSize="@dimen/sp_12"
+            android:gravity="center"
+            android:background="@drawable/summer_selector_sort"
+            android:textColor="@color/summer_selector_sort"/>
+</LinearLayout>

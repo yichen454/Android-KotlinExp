@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Android-KotlinExp.iml" filepath="$PROJECT_DIR$/Android-KotlinExp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Common/Common.iml" filepath="$PROJECT_DIR$/Common/Common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Gank/Gank.iml" filepath="$PROJECT_DIR$/Gank/Gank.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PluginSwitch/PluginSwitch.iml" filepath="$PROJECT_DIR$/PluginSwitch/PluginSwitch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Provider/Provider.iml" filepath="$PROJECT_DIR$/Provider/Provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Summer/Summer.iml" filepath="$PROJECT_DIR$/Summer/Summer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+    </modules>
+  </component>
+</project>

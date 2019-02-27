@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.yichen.summer">
+    <application>
+        <activity android:name=".ui.activity.ProfileActivity"/>
+        <activity android:name=".ui.activity.CommentActivity"/>
+        <activity android:name=".ui.activity.SearchActivity"/>
+    </application>
+</manifest>

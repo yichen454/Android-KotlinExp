@@ -1,0 +1,24 @@
+apply plugin: 'com.yichen.comswitch'
+apply from: rootProject.file('libbase.gradle')
+
+kapt {
+    arguments {
+        arg("moduleName", project.getName())
+    }
+}
+
+android {
+    //规定资源命名前缀为music_
+    resourcePrefix "gank_"
+}
+
+dependencies {
+    implementation project(':Provider')
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+    kapt "com.alibaba:arouter-compiler:$arouter_compiler_version"
+}
+
+combuild {
+    applicationName = 'com.yichen.gank.app.GankApplication'
+    isRegisterAuto = false
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="summer_blue_light">#8cdad7</color>
+    <color name="summer_yellow">#ffc522</color>
+    <color name="summer_pink">#f89fbd</color>
+    <color name="summer_orange">#ec6b41</color>
+    <color name="summer_green">#00bab6</color>
+    <color name="summer_orange_light">#f69600</color>
+    <color name="summer_pink_dark">#ee6a74</color>
+    <color name="summer_green_dark">#00a49e</color>
+    <color name="summer_blue">#36bbf2</color>
+    <color name="summer_green_light">#c7e39a</color>
+    <color name="summer_gray_light">#dadada</color>
+</resources>
