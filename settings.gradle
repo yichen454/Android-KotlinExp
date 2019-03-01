@@ -1,1 +1,1 @@
-include ':app', ':Common', ':Provider', ':PluginSwitch', ':Gank', ':Summer'
+include ':app', ':Common', ':Provider', ':PluginSwitch', ':Gank', ':Summer', ':Music'

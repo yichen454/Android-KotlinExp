@@ -14,7 +14,7 @@ import java.security.MessageDigest
 /**
  * Created by Chen on 2019/2/20
  */
-class GlideBlurformation(var context: Context, var radius: Float) : BitmapTransformation(context) {
+class GlideBlurformation(var context: Context, var scale: Float, var radius: Float) : BitmapTransformation(context) {
     private val ID = "com.yichen.common.utils.GlideBlurformation"
     private val ID_BYTES = ID.toByteArray(Key.CHARSET)
 
@@ -23,12 +23,17 @@ class GlideBlurformation(var context: Context, var radius: Float) : BitmapTransf
     }
 
     override fun transform(pool: BitmapPool, toTransform: Bitmap, outWidth: Int, outHeight: Int): Bitmap {
-        return blurBitmap(context, toTransform, radius)
+        return blurBitmap(context, toTransform, scale, radius)
     }
 
-    private fun blurBitmap(context: Context, image: Bitmap, blurRadius: Float): Bitmap {
+    private fun blurBitmap(context: Context, image: Bitmap, bitmapScale: Float, blurRadius: Float): Bitmap {
         // 将缩小后的图片做为预渲染的图片
-        val inputBitmap = Bitmap.createScaledBitmap(image, image.width / 2, image.height / 2, false)
+        val inputBitmap = Bitmap.createScaledBitmap(
+            image,
+            (image.width * bitmapScale).toInt(),
+            (image.height * bitmapScale).toInt(),
+            false
+        )
         // 创建一张渲染后的输出图片
         val outputBitmap = Bitmap.createBitmap(inputBitmap)
         // 创建RenderScript内核对象

@@ -1,6 +1,7 @@
 package com.yichen.provider.router.component
 
 import android.text.TextUtils
+import com.orhanobut.logger.Logger
 
 /**
  * 组件注册
@@ -48,6 +49,7 @@ class Router private constructor() {
      * @param classname 组件名
      */
     fun registerComponent(classname: String?) {
+        Logger.d("register $classname")
         if (TextUtils.isEmpty(classname)) {
             return
         }
@@ -56,9 +58,9 @@ class Router private constructor() {
         }
         try {
             val clazz = Class.forName(classname)
-            val applicationLike = clazz.newInstance() as IApplicationLoad
-            applicationLike.registered()
-            components[classname!!] = applicationLike
+            val applicationLoad = clazz.newInstance() as IApplicationLoad
+            applicationLoad.registered()
+            components[classname!!] = applicationLoad
         } catch (e: Exception) {
             e.printStackTrace()
         }
@@ -81,8 +83,8 @@ class Router private constructor() {
         }
         try {
             val clazz = Class.forName(classname)
-            val applicationLike = clazz.newInstance() as IApplicationLoad
-            applicationLike.unregistered()
+            val applicationLoad = clazz.newInstance() as IApplicationLoad
+            applicationLoad.unregistered()
             components.remove(classname)
         } catch (e: Exception) {
             e.printStackTrace()

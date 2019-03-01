@@ -56,7 +56,20 @@ object ImageLoader {
             .dontAnimate()
             .apply(
                 RequestOptions.bitmapTransform(
-                    GlideBlurformation(context, 20f)
+                    GlideBlurformation(context, 0.5f, 20f)
+                )
+            )
+            .into(imageView)
+    }
+
+    fun loadUrlBlurImage(context: Context, url: String, imageView: ImageView, scale: Float, radius: Float) {
+        GlideApp.with(context)
+            .load(url)
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .dontAnimate()
+            .apply(
+                RequestOptions.bitmapTransform(
+                    GlideBlurformation(context, scale, radius)
                 )
             )
             .into(imageView)

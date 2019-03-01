@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <View android:layout_width="match_parent"
+          android:layout_height="@dimen/padding_top"
+          android:background="@color/music_red"/>
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_48"
+                    android:background="@color/music_red">
+
+    </RelativeLayout>
+
+    <android.support.design.widget.TabLayout
+            android:id="@+id/mMusicTabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/music_red"
+            app:tabIndicatorColor="@color/common_white"
+            app:tabIndicatorFullWidth="false"
+            app:tabIndicatorHeight="@dimen/dp_3"
+            android:paddingBottom="@dimen/dp_1"
+            app:tabTextColor="@color/common_white"
+            app:tabTextAppearance="@style/TabLayoutTextStyle"/>
+
+    <android.support.v4.view.ViewPager
+            android:id="@+id/mMusicViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+</LinearLayout>

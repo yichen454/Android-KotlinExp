@@ -8,7 +8,7 @@ kapt {
 }
 
 android {
-    resourcePrefix "gank_"
+    resourcePrefix "music_"
 }
 
 dependencies {
@@ -18,6 +18,6 @@ dependencies {
 }
 
 combuild {
-    applicationName = 'com.yichen.gank.app.GankApplication'
+    applicationName = 'com.yichen.music_activity_test.app.MusicApplication'
     isRegisterAuto = false
 }
