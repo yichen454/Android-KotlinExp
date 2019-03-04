@@ -49,6 +49,7 @@ data class SummerUserData(
     var in_shields: Boolean,
     var show_game_invite: Boolean
 ) : Parcelable {
+    @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
     constructor(parcel: Parcel) : this(
         parcel.readString(),
         parcel.readString(),
@@ -95,17 +96,17 @@ data class SummerUserData(
     }
 
     data class Tags(
-        var music: List<String>,
-        var charater: List<String>,
-        var book: List<String>,
-        var movie: List<String>,
-        var series: List<String>,
-        var sport: List<String>,
-        var food: List<String>,
-        var traval: List<String>,
-        var hangout: List<String>,
-        var pet: List<String>,
-        var dream: List<String>
+        var music: List<String>?,
+        var charater: List<String>?,
+        var book: List<String>?,
+        var movie: List<String>?,
+        var series: List<String>?,
+        var sport: List<String>?,
+        var food: List<String>?,
+        var traval: List<String>?,
+        var hangout: List<String>?,
+        var pet: List<String>?,
+        var dream: List<String>?
     ) : Parcelable {
         constructor(parcel: Parcel) : this(
             parcel.createStringArrayList(),
@@ -155,6 +156,7 @@ data class SummerUserData(
         var name: String,
         var level: Int
     ) : Parcelable {
+        @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
         constructor(parcel: Parcel) : this(
             parcel.readString(),
             parcel.readInt()

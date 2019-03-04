@@ -79,47 +79,47 @@ class ProfileDetailFragment : BaseFragment() {
     }
 
     private fun checkTag(data: SummerUserData) {
-        if (data.tags.charater == null || data.tags.charater.isEmpty()) {
+        if (data.tags.charater == null || data.tags.charater!!.isEmpty()) {
             data.tags.charater = ArrayList()
             (data.tags.charater as ArrayList).add("性格莫测")
         }
-        if (data.tags.music == null || data.tags.music.isEmpty()) {
+        if (data.tags.music == null || data.tags.music!!.isEmpty()) {
             data.tags.music = ArrayList()
             (data.tags.music as ArrayList).add("还没有喜欢的音乐")
         }
-        if (data.tags.book == null || data.tags.book.isEmpty()) {
+        if (data.tags.book == null || data.tags.book!!.isEmpty()) {
             data.tags.book = ArrayList()
             (data.tags.book as ArrayList).add("还没有喜欢的书籍")
         }
-        if (data.tags.movie == null || data.tags.movie.isEmpty()) {
+        if (data.tags.movie == null || data.tags.movie!!.isEmpty()) {
             data.tags.movie = ArrayList()
             (data.tags.movie as ArrayList).add("还没有喜欢的电影")
         }
-        if (data.tags.series == null || data.tags.series.isEmpty()) {
+        if (data.tags.series == null || data.tags.series!!.isEmpty()) {
             data.tags.series = ArrayList()
             (data.tags.series as ArrayList).add("追剧？我习惯被追")
         }
-        if (data.tags.sport == null || data.tags.sport.isEmpty()) {
+        if (data.tags.sport == null || data.tags.sport!!.isEmpty()) {
             data.tags.sport = ArrayList()
             (data.tags.sport as ArrayList).add("睡觉算运动么")
         }
-        if (data.tags.food == null || data.tags.food.isEmpty()) {
+        if (data.tags.food == null || data.tags.food!!.isEmpty()) {
             data.tags.food = ArrayList()
             (data.tags.food as ArrayList).add("什么都爱吃")
         }
-        if (data.tags.traval == null || data.tags.traval.isEmpty()) {
+        if (data.tags.traval == null || data.tags.traval!!.isEmpty()) {
             data.tags.traval = ArrayList()
             (data.tags.traval as ArrayList).add("去过月球")
         }
-        if (data.tags.hangout == null || data.tags.hangout.isEmpty()) {
+        if (data.tags.hangout == null || data.tags.hangout!!.isEmpty()) {
             data.tags.hangout = ArrayList()
             (data.tags.hangout as ArrayList).add("学校食堂")
         }
-        if (data.tags.pet == null || data.tags.pet.isEmpty()) {
+        if (data.tags.pet == null || data.tags.pet!!.isEmpty()) {
             data.tags.pet = ArrayList()
             (data.tags.pet as ArrayList).add("🐶 or 🐱")
         }
-        if (data.tags.dream == null || data.tags.dream.isEmpty()) {
+        if (data.tags.dream == null || data.tags.dream!!.isEmpty()) {
             data.tags.dream = ArrayList()
             (data.tags.dream as ArrayList).add("I have a dream")
         }

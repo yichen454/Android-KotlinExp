@@ -30,7 +30,6 @@ dependencies {
     api dependence.libArouter
 
     api dependence.libRecyclerview
-    api dependence.libLRecyclerView
     kapt "com.github.bumptech.glide:compiler:$glide_version"
     api dependence.libGlide
 

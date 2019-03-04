@@ -2,8 +2,8 @@ package com.yichen.gank.ui.fragment
 
 import android.content.Intent
 import android.support.v7.widget.LinearLayoutManager
-import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter
 import com.trello.rxlifecycle2.components.support.RxFragment
+import com.yichen.common.recyclerview.XRecyclerView
 import com.yichen.common.ui.fragment.BaseMvpFragment
 import com.yichen.gank.R
 import com.yichen.gank.adapter.CategoryAdapter
@@ -23,7 +23,6 @@ class CategoryFragment : BaseMvpFragment<CategoryPresenter>(), CategoryContract.
 
     private var category = ""
     private lateinit var mCategoryAdapter: CategoryAdapter
-    private lateinit var mLRecyclerViewAdapter: LRecyclerViewAdapter
     private val DEFAULTPAGER = 1
     private var currentPage = DEFAULTPAGER
     private val totalPager = 20
@@ -42,11 +41,10 @@ class CategoryFragment : BaseMvpFragment<CategoryPresenter>(), CategoryContract.
     override fun initView() {
 
         mCategoryAdapter = CategoryAdapter(activity!!)
-        mLRecyclerViewAdapter = LRecyclerViewAdapter(mCategoryAdapter)
 
         categoryRecycler.layoutManager = LinearLayoutManager(activity!!)
-        categoryRecycler.adapter = mLRecyclerViewAdapter
-        categoryRecycler.setLoadMoreEnabled(true)
+        categoryRecycler.adapter = mCategoryAdapter
+        categoryRecycler.isLoadingMoreEnabled = true
     }
 
     override fun initData() {
@@ -56,36 +54,38 @@ class CategoryFragment : BaseMvpFragment<CategoryPresenter>(), CategoryContract.
 
     override fun setListener() {
         //设置加载更多
-        categoryRecycler.setOnLoadMoreListener {
-            currentPage++
-            if (currentPage <= totalPager) {
-                mPresenter.getCategoryGanks(category, currentPage, Constant.STATE_LOADMORE, false)
-            } else {
-                categoryRecycler.setNoMore(true)
+        categoryRecycler.setLoadingListener(object : XRecyclerView.LoadingListener {
+            override fun onRefresh() {
+                currentPage = DEFAULTPAGER
+                mPresenter.getCategoryGanks(category, currentPage, Constant.STATE_REFRESH, false)
             }
-        }
-        //设置下拉刷新
-        categoryRecycler.setOnRefreshListener {
-            currentPage = DEFAULTPAGER
-            mPresenter.getCategoryGanks(category, currentPage, Constant.STATE_REFRESH, false)
-        }
+
+            override fun onLoadMore() {
+                currentPage++
+                if (currentPage <= totalPager) {
+                    mPresenter.getCategoryGanks(category, currentPage, Constant.STATE_LOADMORE, false)
+                } else {
+                    categoryRecycler.setNoMore(true)
+                }
+            }
+        })
         //item点击监听
-        mLRecyclerViewAdapter.setOnItemClickListener { _, position ->
+        mCategoryAdapter.setOnItemClickListener { _, item, _ ->
             val intent = Intent(activity, GankDetailActivity::class.java)
-            intent.putExtra(Constant.DETAIL_URL, mCategoryAdapter.getDatas()[position].url)
+            intent.putExtra(Constant.DETAIL_URL, (item as GankItemData).url)
             startActivity(intent)
+
         }
     }
 
     override fun showGanks(datas: List<GankItemData>, state: Int) {
         if (state == Constant.STATE_LOADMORE) {//加载更多
-            mCategoryAdapter.addAll(datas)
-            categoryRecycler.refreshComplete(datas.size)
+            mCategoryAdapter.addItemsToLast(datas)
+            categoryRecycler.loadMoreComplete()
         } else if (state == Constant.STATE_REFRESH) {//下拉刷新
-            mCategoryAdapter.updateData(datas)
-            categoryRecycler.refreshComplete(0)
+            mCategoryAdapter.setListAll(datas)
+            categoryRecycler.refreshComplete()
         }
-        mLRecyclerViewAdapter.notifyDataSetChanged()
     }
 
     override fun getViewContext(): RxFragment {

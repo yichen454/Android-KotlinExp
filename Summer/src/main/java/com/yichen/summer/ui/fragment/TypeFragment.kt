@@ -2,9 +2,9 @@ package com.yichen.summer.ui.fragment
 
 import android.content.Intent
 import android.support.v7.widget.LinearLayoutManager
-import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 import com.trello.rxlifecycle2.components.support.RxFragment
+import com.yichen.common.recyclerview.XRecyclerView
 import com.yichen.common.ui.fragment.BaseMvpFragment
 import com.yichen.summer.R
 import com.yichen.summer.adapter.TypeAdapter
@@ -26,7 +26,6 @@ class TypeFragment : BaseMvpFragment<TypePresenter>(), TypeContract.View {
 
     private var type = ""
     private lateinit var mTypeAdapter: TypeAdapter
-    private lateinit var mLRecyclerViewAdapter: LRecyclerViewAdapter
     private var DEFAULTOFFSET: Int = 0
     private var offset: Int = DEFAULTOFFSET
     private var sort: String = Constant.SORT_TOP
@@ -40,11 +39,10 @@ class TypeFragment : BaseMvpFragment<TypePresenter>(), TypeContract.View {
 
     override fun initView() {
         mTypeAdapter = TypeAdapter(activity!!)
-        mLRecyclerViewAdapter = LRecyclerViewAdapter(mTypeAdapter)
 
         typeRecycler.layoutManager = LinearLayoutManager(activity!!)
-        typeRecycler.adapter = mLRecyclerViewAdapter
-        typeRecycler.setLoadMoreEnabled(true)
+        typeRecycler.adapter = mTypeAdapter
+        typeRecycler.isLoadingMoreEnabled = true
         tv_sort_top.isSelected = true
     }
 
@@ -58,30 +56,30 @@ class TypeFragment : BaseMvpFragment<TypePresenter>(), TypeContract.View {
     }
 
     override fun setListener() {
-        //设置加载更多
-        typeRecycler.setOnLoadMoreListener {
-            offset = mTypeAdapter.getDatas().size
-            if (offset == 0) {
-                typeRecycler.setNoMore(true)
-            } else {
-                val lastData = mTypeAdapter.getDatas()[offset - 1]
-                val since: String = when (type) {
-                    Constant.TYPE_BLACK -> lastData.published_at
-                    else -> lastData.created_at
-                }
-                mPresenter.getSummerInfo(type, offset, since, sort, Constant.STATE_LOADMORE, false)
+        typeRecycler.setLoadingListener(object : XRecyclerView.LoadingListener {
+            override fun onRefresh() {
+                mPresenter.getSummerInfo(type, DEFAULTOFFSET, "", sort, Constant.STATE_REFRESH, false)
             }
-        }
-        //设置下拉刷新
-        typeRecycler.setOnRefreshListener {
-            mPresenter.getSummerInfo(type, DEFAULTOFFSET, "", sort, Constant.STATE_REFRESH, false)
-        }
-        //item点击监听
-        mLRecyclerViewAdapter.setOnItemClickListener { _, position ->
-            val itemData: SummerInfoData = mTypeAdapter.getDatas()[position]
+
+            override fun onLoadMore() {
+                offset = mTypeAdapter.itemCount
+                if (offset == 0) {
+                    typeRecycler.setNoMore(true)
+                } else {
+                    val lastData = mTypeAdapter.getData(offset - 1)
+                    val since: String = when (type) {
+                        Constant.TYPE_BLACK -> lastData.published_at
+                        else -> lastData.created_at
+                    }
+                    mPresenter.getSummerInfo(type, offset, since, sort, Constant.STATE_LOADMORE, false)
+                }
+            }
+
+        })
+        mTypeAdapter.setOnItemClickListener { _, item, _ ->
             val intent = Intent(activity, CommentActivity::class.java)
             intent.putExtra(Constant.TYPE, type)
-            intent.putExtra(Constant.COMMENT_KEY, itemData.id)
+            intent.putExtra(Constant.COMMENT_KEY, (item as SummerInfoData).id)
             startActivity(intent)
         }
 
@@ -113,13 +111,12 @@ class TypeFragment : BaseMvpFragment<TypePresenter>(), TypeContract.View {
 
     override fun showSummerInfo(datas: List<SummerInfoData>, state: Int) {
         if (state == Constant.STATE_LOADMORE) {//加载更多
-            mTypeAdapter.addAll(datas)
-            typeRecycler.refreshComplete(datas.size)
+            mTypeAdapter.addItemsToLast(datas)
+            typeRecycler.loadMoreComplete()
         } else if (state == Constant.STATE_REFRESH) {//下拉刷新
-            mTypeAdapter.updateData(datas)
-            typeRecycler.refreshComplete(0)
+            mTypeAdapter.setListAll(datas)
+            typeRecycler.refreshComplete()
         }
-        mLRecyclerViewAdapter.notifyDataSetChanged()
     }
 
     override fun getTypeContext(): RxFragment? {

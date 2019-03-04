@@ -19,6 +19,6 @@ data class SummerCommentData(
     var voted: Boolean,
     var mute: Boolean,
     var to_user: SummerSimpleUser,
-    var anonymous_user: SummerSimpleUser,
+    var anonymous_user: SummerSimpleUser?,
     var to_anonymous_user: SummerSimpleUser
 )

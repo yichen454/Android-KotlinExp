@@ -33,10 +33,10 @@
     </RelativeLayout>
 
     <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent">
-        <com.github.jdsjlzx.recyclerview.LRecyclerView
+        <com.yichen.common.recyclerview.XRecyclerView
                 android:id="@+id/commentRecycler"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="match_parent"/>
 
         <include layout="@layout/summer_widget_short"
                  android:layout_width="@dimen/dp_72"

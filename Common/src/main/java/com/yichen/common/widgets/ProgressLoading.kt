@@ -7,12 +7,6 @@ import android.view.Gravity
 import android.widget.ImageView
 import com.yichen.common.R
 
-/**
- * @Author : 郭富东
- * @Date ：2018/8/1 - 16:44
- * @Email：878749089@qq.com
- * @descriptio：加载对话框
- */
 class ProgressLoading private constructor(context: Context, them: Int) : Dialog(context, them) {
     companion object {
         private lateinit var mDialog: ProgressLoading

@@ -2,8 +2,8 @@ package com.yichen.summer.ui.activity
 
 import android.content.Intent
 import android.support.v7.widget.LinearLayoutManager
-import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
+import com.yichen.common.recyclerview.XRecyclerView
 import com.yichen.common.ui.activity.BaseMvpActivity
 import com.yichen.summer.R
 import com.yichen.summer.adapter.CommentAdapter
@@ -23,7 +23,6 @@ class CommentActivity : BaseMvpActivity<CommentPresenter>(), CommentContract.Vie
     private var type = ""
     private var qid = ""
     private lateinit var mCommentAdapter: CommentAdapter
-    private lateinit var mLRecyclerViewAdapter: LRecyclerViewAdapter
     private var DEFAULTOFFSET: Int = 0
     private var offset: Int = DEFAULTOFFSET
     private var sort: String = Constant.SORT_TOP
@@ -39,11 +38,10 @@ class CommentActivity : BaseMvpActivity<CommentPresenter>(), CommentContract.Vie
         setStatusBar()
 
         mCommentAdapter = CommentAdapter(this)
-        mLRecyclerViewAdapter = LRecyclerViewAdapter(mCommentAdapter)
 
         commentRecycler.layoutManager = LinearLayoutManager(this)
-        commentRecycler.adapter = mLRecyclerViewAdapter
-        commentRecycler.setLoadMoreEnabled(true)
+        commentRecycler.adapter = mCommentAdapter
+        commentRecycler.isLoadingMoreEnabled = true
         tv_sort_top.isSelected = true
     }
 
@@ -59,25 +57,24 @@ class CommentActivity : BaseMvpActivity<CommentPresenter>(), CommentContract.Vie
 
     override fun setListener() {
         super.setListener()
-        //设置加载更多
-        commentRecycler.setOnLoadMoreListener {
-            offset = mCommentAdapter.getDatas().size
-            if (offset == 0) {
-                commentRecycler.setNoMore(true)
-            } else {
-                val lastData = mCommentAdapter.getDatas()[offset - 1]
-                val since: String = lastData.created_at
-                mPresenter.getComments(type, qid, offset, since, sort, Constant.STATE_LOADMORE, false)
+        commentRecycler.setLoadingListener(object : XRecyclerView.LoadingListener {
+            override fun onRefresh() {
+                mPresenter.getComments(type, qid, DEFAULTOFFSET, "", sort, Constant.STATE_REFRESH, false)
             }
-        }
-        //设置下拉刷新
-        commentRecycler.setOnRefreshListener {
-            mPresenter.getComments(type, qid, DEFAULTOFFSET, "", sort, Constant.STATE_REFRESH, false)
-        }
-        //item点击监听
-        mLRecyclerViewAdapter.setOnItemClickListener { _, position ->
 
-        }
+            override fun onLoadMore() {
+                offset = mCommentAdapter.itemCount
+                if (offset == 0) {
+                    commentRecycler.setNoMore(true)
+                } else {
+                    val lastData = mCommentAdapter.getData(offset - 1)
+                    val since: String = lastData.created_at
+                    mPresenter.getComments(type, qid, offset, since, sort, Constant.STATE_LOADMORE, false)
+                }
+            }
+
+        })
+
 
         mCommentAdapter.innerClickListener = object : CommentAdapter.InnerClickListener {
             override fun onAvatarClick(itemData: SummerCommentData) {
@@ -108,13 +105,12 @@ class CommentActivity : BaseMvpActivity<CommentPresenter>(), CommentContract.Vie
 
     override fun showComments(datas: List<SummerCommentData>, state: Int) {
         if (state == Constant.STATE_LOADMORE) {//加载更多
-            mCommentAdapter.addAll(datas)
-            commentRecycler.refreshComplete(datas.size)
+            mCommentAdapter.addItemsToLast(datas)
+            commentRecycler.loadMoreComplete()
         } else if (state == Constant.STATE_REFRESH) {//下拉刷新
-            mCommentAdapter.updateData(datas)
-            commentRecycler.refreshComplete(0)
+            mCommentAdapter.setListAll(datas)
+            commentRecycler.refreshComplete()
         }
-        mLRecyclerViewAdapter.notifyDataSetChanged()
     }
 
     override fun getViewContext(): RxAppCompatActivity {

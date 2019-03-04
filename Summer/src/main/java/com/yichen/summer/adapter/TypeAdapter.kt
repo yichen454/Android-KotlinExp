@@ -4,8 +4,8 @@ import android.content.Context
 import android.text.TextUtils
 import android.widget.ImageView
 import android.widget.TextView
-import com.yichen.common.ui.adapter.BaseAdapter
-import com.yichen.common.ui.adapter.BaseViewHolder
+import com.yichen.common.recyclerview.adapter.HelperRecyclerViewAdapter
+import com.yichen.common.recyclerview.adapter.HelperRecyclerViewHolder
 import com.yichen.common.utils.FormatUtil
 import com.yichen.common.utils.ImageLoader
 import com.yichen.summer.R
@@ -14,7 +14,8 @@ import com.yichen.summer.entity.SummerInfoData
 /**
  * Created by Chen on 2019/2/18
  */
-class TypeAdapter(private val context: Context) : BaseAdapter<SummerInfoData>(context) {
+class TypeAdapter(private val context: Context) :
+    HelperRecyclerViewAdapter<SummerInfoData>(context, R.layout.summer_item_type) {
 
     interface InnerClickListener {
         fun onAvatarClick(itemData: SummerInfoData)
@@ -22,16 +23,11 @@ class TypeAdapter(private val context: Context) : BaseAdapter<SummerInfoData>(co
 
     var innerClickListener: InnerClickListener? = null
 
-    override fun getItemLayoutId(): Int {
-        return R.layout.summer_item_type
+    override fun HelperBindData(viewHolder: HelperRecyclerViewHolder?, position: Int, item: SummerInfoData?) {
+        bindImgItem(viewHolder!!, item!!)
     }
 
-    override fun onBindView(holder: BaseViewHolder, position: Int) {
-        val itemData = mDatas[position]
-        bindImgItem(holder, itemData)
-    }
-
-    private fun bindImgItem(holder: BaseViewHolder, itemData: SummerInfoData) {
+    private fun bindImgItem(holder: HelperRecyclerViewHolder, itemData: SummerInfoData) {
         val ivAvatar: ImageView = holder.getView(R.id.iv_avatar)
         val tvNick: TextView = holder.getView(R.id.tv_nick)
         val tvSchool: TextView = holder.getView(R.id.tv_school)
@@ -42,8 +38,8 @@ class TypeAdapter(private val context: Context) : BaseAdapter<SummerInfoData>(co
 
         tvContent.text = itemData.content
         if (itemData.anonymous_user != null) {
-            tvNick.text = itemData.anonymous_user.nickname
-            ImageLoader.loadUrlCircleImage(context, itemData.anonymous_user.avatar, ivAvatar)
+            tvNick.text = itemData.anonymous_user!!.nickname
+            ImageLoader.loadUrlCircleImage(context, itemData.anonymous_user!!.avatar, ivAvatar)
         } else {
             if (TextUtils.isEmpty(itemData.user.nickname) || TextUtils.isEmpty(itemData.user.avatar)) {
                 tvNick.text = "匿名用户"

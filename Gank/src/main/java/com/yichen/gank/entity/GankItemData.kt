@@ -13,5 +13,5 @@ data class GankItemData(
     var url: String,
     var used: Boolean,
     var who: String,
-    var images: List<String>
+    var images: List<String>?
 )

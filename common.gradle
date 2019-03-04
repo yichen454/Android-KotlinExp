@@ -22,11 +22,11 @@ versions.anko_sqlite = "0.10.5"
 versions.rhino_android = "1.0"
 
 versions.glide = "4.1.1"
-versions.LRecyclerView = "1.5.4.3"
 
 versions.bottom_bar = "2.3.1"
 
 ext {
+    support_version = versions.support
     dagger_version = versions.dagger
     glide_version = versions.glide
     arouter_compiler_version = versions.arouter_compiler_version
@@ -68,7 +68,6 @@ ext {
                   'libAnkoSqlite'               : "org.jetbrains.anko:anko-sqlite:$versions.anko_sqlite",
 
                   'libRecyclerview'             : "com.android.support:recyclerview-v7:$versions.support",
-                  'libLRecyclerView'            : "com.github.jdsjlzx:LRecyclerView:$versions.LRecyclerView",
                   'libGlide'                    : "com.github.bumptech.glide:glide:$versions.glide",
 
                   'libBottomBar'                : "com.roughike:bottom-bar:$versions.bottom_bar"

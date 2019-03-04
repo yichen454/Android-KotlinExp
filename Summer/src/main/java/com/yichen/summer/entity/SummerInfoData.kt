@@ -13,7 +13,7 @@ data class SummerInfoData(
     var published_at: String,
     var school_limit: Boolean,
     var point_name: String,
-    var anonymous_user: SummerSimpleUser,
+    var anonymous_user: SummerSimpleUser?,
     var answers_count: Int,
     var comments_count: Int,
     var votes_count: Int,

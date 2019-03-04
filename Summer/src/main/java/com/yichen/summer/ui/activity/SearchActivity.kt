@@ -3,9 +3,9 @@ package com.yichen.summer.ui.activity
 import android.content.Intent
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.SearchView
-import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 import com.trello.rxlifecycle2.components.support.RxFragment
+import com.yichen.common.recyclerview.XRecyclerView
 import com.yichen.common.ui.activity.BaseMvpActivity
 import com.yichen.common.utils.ToastUtils
 import com.yichen.summer.R
@@ -26,7 +26,6 @@ class SearchActivity : BaseMvpActivity<TypePresenter>(), TypeContract.View {
     var type: String = Constant.TYPE_BLACK
     var tag: String = ""
     private lateinit var mTypeAdapter: TypeAdapter
-    private lateinit var mLRecyclerViewAdapter: LRecyclerViewAdapter
     private var DEFAULTOFFSET: Int = 0
     private var offset: Int = DEFAULTOFFSET
 
@@ -40,12 +39,12 @@ class SearchActivity : BaseMvpActivity<TypePresenter>(), TypeContract.View {
     override fun initView() {
         setStatusBar()
         mTypeAdapter = TypeAdapter(this)
-        mLRecyclerViewAdapter = LRecyclerViewAdapter(mTypeAdapter)
 
         searchRecycler.layoutManager = LinearLayoutManager(this)
-        searchRecycler.adapter = mLRecyclerViewAdapter
-        searchRecycler.setLoadMoreEnabled(true)
-        searchRecycler.setPullRefreshEnabled(false)
+        searchRecycler.adapter = mTypeAdapter
+        searchRecycler.isLoadingMoreEnabled = true
+        searchRecycler.isPullRefreshEnabled = false
+
     }
 
     override fun initData() {
@@ -59,7 +58,7 @@ class SearchActivity : BaseMvpActivity<TypePresenter>(), TypeContract.View {
         super.setListener()
         iv_back.setOnClickListener { finish() }
 
-        radio.setOnCheckedChangeListener { group, checkedId ->
+        radio.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
                 R.id.rb_black -> type = Constant.TYPE_BLACK
                 R.id.rb_secret -> type = Constant.TYPE_SECRET
@@ -82,22 +81,26 @@ class SearchActivity : BaseMvpActivity<TypePresenter>(), TypeContract.View {
 
         })
 
-        //设置加载更多
-        searchRecycler.setOnLoadMoreListener {
-            offset = mTypeAdapter.getDatas().size
-            if (offset == 0) {
-                searchRecycler.setNoMore(true)
-            } else {
-                mPresenter.searchSummerInfo(type, tag, offset, Constant.STATE_LOADMORE, false)
-            }
-        }
+        searchRecycler.setLoadingListener(object :XRecyclerView.LoadingListener{
+            override fun onRefresh() {
 
-        //item点击监听
-        mLRecyclerViewAdapter.setOnItemClickListener { _, position ->
-            val itemData: SummerInfoData = mTypeAdapter.getDatas()[position]
+            }
+
+            override fun onLoadMore() {
+                offset = mTypeAdapter.itemCount
+                if (offset == 0) {
+                    searchRecycler.setNoMore(true)
+                } else {
+                    mPresenter.searchSummerInfo(type, tag, offset, Constant.STATE_LOADMORE, false)
+                }
+            }
+
+        })
+
+        mTypeAdapter.setOnItemClickListener { _, item, _ ->
             val intent = Intent(this@SearchActivity, CommentActivity::class.java)
             intent.putExtra(Constant.TYPE, type)
-            intent.putExtra(Constant.COMMENT_KEY, itemData.id)
+            intent.putExtra(Constant.COMMENT_KEY, (item as SummerInfoData).id)
             startActivity(intent)
         }
 
@@ -116,13 +119,12 @@ class SearchActivity : BaseMvpActivity<TypePresenter>(), TypeContract.View {
             ToastUtils.instance.showToast("没有结果")
         }
         if (state == Constant.STATE_LOADMORE) {//加载更多
-            mTypeAdapter.addAll(datas)
-            searchRecycler.refreshComplete(datas.size)
+            mTypeAdapter.addItemsToLast(datas)
+            searchRecycler.loadMoreComplete()
         } else if (state == Constant.STATE_REFRESH) {//下拉刷新
-            mTypeAdapter.updateData(datas)
-            searchRecycler.refreshComplete(0)
+            mTypeAdapter.setListAll(datas)
+            searchRecycler.refreshComplete()
         }
-        mLRecyclerViewAdapter.notifyDataSetChanged()
     }
 
     override fun getTypeContext(): RxFragment? {

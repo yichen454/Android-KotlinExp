@@ -71,7 +71,7 @@
             app:iconifiedByDefault="false"
             app:queryHint="请输入不超过10个关键字"/>
 
-    <com.github.jdsjlzx.recyclerview.LRecyclerView
+    <com.yichen.common.recyclerview.XRecyclerView
             android:id="@+id/searchRecycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
