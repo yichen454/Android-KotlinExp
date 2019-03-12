@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_2">
+
+    <com.yichen.common.widgets.NiceImageView
+            android:id="@+id/iv_cover"
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/dp_40"
+            app:corner_radius="@dimen/dp_4"/>
+
+    <TextView
+            android:id="@+id/tv_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1234"
+            android:layout_margin="@dimen/dp_2"
+            android:textColor="@color/common_white"
+            android:textSize="@dimen/sp_12"
+            android:layout_alignRight="@id/iv_cover"/>
+
+    <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_4"
+            android:background="#99000000"
+            android:text="alalalal"
+            android:maxLines="1"
+            android:textSize="@dimen/sp_14"
+            android:textColor="@color/common_white"
+            android:layout_alignBottom="@id/iv_cover"/>
+
+</RelativeLayout>

@@ -1,6 +1,6 @@
 package com.yichen.common.recyclerview.adapter;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
 public abstract class BH extends RecyclerView.ViewHolder {

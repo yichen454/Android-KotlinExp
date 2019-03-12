@@ -1,7 +1,7 @@
 package com.yichen.common.recyclerview.group;
 
 import android.content.Context;
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
 import android.view.View;
 import android.view.ViewGroup;
 import com.yichen.common.recyclerview.adapter.HelperRecyclerViewHolder;

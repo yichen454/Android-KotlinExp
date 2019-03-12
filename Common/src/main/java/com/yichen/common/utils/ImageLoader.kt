@@ -7,6 +7,7 @@ import android.os.Build
 import android.widget.ImageView
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.yichen.common.injection.module.GlideApp
 
@@ -18,6 +19,14 @@ object ImageLoader {
     fun loadUrlImage(context: Context, url: String, imageView: ImageView) {
         GlideApp.with(context)
             .load(url)
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .dontAnimate()
+            .into(imageView)
+    }
+
+    fun loadUrlImage(context: Context, id: Int, imageView: ImageView) {
+        GlideApp.with(context)
+            .load(id)
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .dontAnimate()
             .into(imageView)
@@ -42,8 +51,32 @@ object ImageLoader {
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .dontAnimate()
             .apply(
+                RequestOptions.circleCropTransform()
+            )
+            .into(imageView)
+    }
+
+    fun loadUrlCornersImage(context: Context, url: String, imageView: ImageView, roundingRadius: Int) {
+        GlideApp.with(context)
+            .load(url)
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .dontAnimate()
+            .apply(
                 RequestOptions.bitmapTransform(
-                    CircleCrop()
+                    RoundedCorners(roundingRadius)
+                )
+            )
+            .into(imageView)
+    }
+
+    fun loadUrlCornersImage(context: Context, id: Int, imageView: ImageView, roundingRadius: Int) {
+        GlideApp.with(context)
+            .load(id)
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .dontAnimate()
+            .apply(
+                RequestOptions.bitmapTransform(
+                    RoundedCorners(roundingRadius)
                 )
             )
             .into(imageView)

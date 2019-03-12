@@ -9,4 +9,6 @@ object MusicApi {
     const val KEY = "579621905"
 
     const val GET_SONG_LIST = "hotSongList"
+
+    const val GET_MV_LIST = "topMvList"
 }

@@ -16,5 +16,7 @@ interface SongListService {
 
     interface GetSongListCallBack {
         fun onSongList(datas: List<MusicSongListEntity>)
+
+        fun onFail()
     }
 }

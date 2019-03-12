@@ -1,6 +1,5 @@
 package com.yichen.music.service.impl
 
-import android.text.TextUtils
 import com.yichen.music.entity.MusicSongListEntity
 import com.yichen.music.net.MusicApi
 import com.yichen.music.net.MusicApiClient
@@ -8,11 +7,12 @@ import com.yichen.music.net.MusicSubscriber
 import com.yichen.music.service.SongListService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
 /**
  * Created by Chen on 2019/2/28
  */
-class SongListServiceImpl : SongListService {
+class SongListServiceImpl @Inject constructor() : SongListService {
     override fun getSongList(
         viewContext: Any,
         limit: Int,
@@ -35,6 +35,7 @@ class SongListServiceImpl : SongListService {
                 }
 
                 override fun onFail(status: Int, msg: String) {
+                    callBack.onFail()
                 }
 
             })

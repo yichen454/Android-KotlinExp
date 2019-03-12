@@ -14,6 +14,7 @@ import javax.inject.Inject
  * Created by Chen on 2019/2/15
  */
 class CategoryServiceImpl @Inject constructor() : CategoryService {
+    
     override fun getCategoryGanks(
         viewContext: RxFragment,
         type: String,

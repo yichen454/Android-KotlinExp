@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.widget.Adapter;
+import androidx.recyclerview.widget.RecyclerView;
 
 
 /**
@@ -158,7 +159,7 @@ public interface ViewHelper<VH> {
          * @param adapter adapter
          * @return viewHolder
          */
-        VH setAdapter(int viewId, android.support.v7.widget.RecyclerView.Adapter adapter);
+        VH setAdapter(int viewId, androidx.recyclerview.widget.RecyclerView.Adapter adapter);
 
         /**
          * 设置控件透明效果

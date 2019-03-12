@@ -1,8 +1,8 @@
 package com.yichen.common.recyclerview.adapter;
 
 import android.content.Context;
-import android.support.annotation.IntDef;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.IntDef;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import com.yichen.common.recyclerview.XRecyclerView;

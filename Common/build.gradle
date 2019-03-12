@@ -34,4 +34,5 @@ dependencies {
     api dependence.libGlide
 
     api dependence.libBottomBar
+    //api dependence.libVideoPlayer
 }

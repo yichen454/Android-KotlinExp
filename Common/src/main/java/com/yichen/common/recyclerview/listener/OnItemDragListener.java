@@ -1,6 +1,6 @@
 package com.yichen.common.recyclerview.listener;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * <p>描述:设置拖拽监听<br/></p>

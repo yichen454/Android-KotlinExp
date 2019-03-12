@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.music_fragment_home.*
  */
 class MusicFragment : BaseFragment() {
 
-    private val mTabTitles = arrayOf("歌单", "MV")
+    private val mTabTitles = arrayOf("歌单", "短片")
     private val mFragments = ArrayList<BaseFragment>()
 
     override fun initView() {

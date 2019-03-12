@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+    <View android:layout_width="match_parent" android:layout_height="@dimen/dp_110"
+          android:background="@color/music_red"/>
+
+    <androidx.viewpager.widget.ViewPager
+            android:id="@+id/mViewPager"
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_150"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_80"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_below="@id/mViewPager">
+
+
+        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+            <ImageView
+                    style="@style/styleMusicHead"/>
+
+            <TextView
+                    style="@style/styleMusicHeadText"
+                    android:text="item_1"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+            <ImageView
+                    style="@style/styleMusicHead"/>
+
+            <TextView
+                    style="@style/styleMusicHeadText"
+                    android:text="item_2"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+            <ImageView
+                    style="@style/styleMusicHead"/>
+
+            <TextView
+                    style="@style/styleMusicHeadText"
+                    android:text="item_3"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+            <ImageView
+                    style="@style/styleMusicHead"/>
+
+            <TextView
+                    style="@style/styleMusicHeadText"
+                    android:text="item_4"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <View android:layout_width="match_parent"
+          android:layout_height="1px"
+          android:layout_alignParentBottom="true"
+          android:background="@color/textGray"/>
+
+</RelativeLayout>

@@ -24,7 +24,7 @@
                 android:layout_marginStart="@dimen/dp_14"
                 android:src="@drawable/toolbar_search_icon"/>
 
-        <android.support.design.widget.TabLayout
+        <com.google.android.material.tabs.TabLayout
                 android:layout_centerHorizontal="true"
                 android:paddingBottom="@dimen/dp_1"
                 android:id="@+id/mSummerTabLayout"
@@ -41,7 +41,7 @@
 
     </RelativeLayout>
 
-    <android.support.v4.view.ViewPager
+    <androidx.viewpager.widget.ViewPager
             android:id="@+id/mSummerViewPager"
             android:layout_width="match_parent"
             android:layout_height="0dp"

@@ -1,7 +1,7 @@
 package com.yichen.gank.ui.fragment
 
 import android.content.Intent
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.trello.rxlifecycle2.components.support.RxFragment
 import com.yichen.common.recyclerview.XRecyclerView
 import com.yichen.common.ui.fragment.BaseMvpFragment
@@ -42,7 +42,7 @@ class CategoryFragment : BaseMvpFragment<CategoryPresenter>(), CategoryContract.
 
         mCategoryAdapter = CategoryAdapter(activity!!)
 
-        categoryRecycler.layoutManager = LinearLayoutManager(activity!!)
+        categoryRecycler.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(activity!!)
         categoryRecycler.adapter = mCategoryAdapter
         categoryRecycler.isLoadingMoreEnabled = true
     }

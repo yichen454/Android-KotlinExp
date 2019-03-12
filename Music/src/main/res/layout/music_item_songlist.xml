@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_2">
+
+    <com.yichen.common.widgets.NiceImageView
+            android:id="@+id/iv_cover"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            app:corner_radius="@dimen/dp_5"/>
+
+    <TextView
+            android:id="@+id/tv_title"
+            android:layout_below="@id/iv_cover"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_4"
+            android:maxLines="2"
+            android:textColor="@color/common_black"
+            android:textSize="@dimen/sp_11"
+            android:layout_marginBottom="@dimen/dp_4"/>
+
+
+</RelativeLayout>

@@ -1,7 +1,7 @@
 package com.yichen.common.recyclerview.divider;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import com.yichen.common.recyclerview.XRecyclerView;
 
 /**

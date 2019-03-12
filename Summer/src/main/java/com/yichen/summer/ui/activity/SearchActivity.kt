@@ -1,8 +1,8 @@
 package com.yichen.summer.ui.activity
 
 import android.content.Intent
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.SearchView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.appcompat.widget.SearchView
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 import com.trello.rxlifecycle2.components.support.RxFragment
 import com.yichen.common.recyclerview.XRecyclerView
@@ -40,7 +40,7 @@ class SearchActivity : BaseMvpActivity<TypePresenter>(), TypeContract.View {
         setStatusBar()
         mTypeAdapter = TypeAdapter(this)
 
-        searchRecycler.layoutManager = LinearLayoutManager(this)
+        searchRecycler.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
         searchRecycler.adapter = mTypeAdapter
         searchRecycler.isLoadingMoreEnabled = true
         searchRecycler.isPullRefreshEnabled = false

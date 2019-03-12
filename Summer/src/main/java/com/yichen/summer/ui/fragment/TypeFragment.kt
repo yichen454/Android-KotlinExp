@@ -1,7 +1,7 @@
 package com.yichen.summer.ui.fragment
 
 import android.content.Intent
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 import com.trello.rxlifecycle2.components.support.RxFragment
 import com.yichen.common.recyclerview.XRecyclerView
@@ -40,7 +40,7 @@ class TypeFragment : BaseMvpFragment<TypePresenter>(), TypeContract.View {
     override fun initView() {
         mTypeAdapter = TypeAdapter(activity!!)
 
-        typeRecycler.layoutManager = LinearLayoutManager(activity!!)
+        typeRecycler.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(activity!!)
         typeRecycler.adapter = mTypeAdapter
         typeRecycler.isLoadingMoreEnabled = true
         tv_sort_top.isSelected = true

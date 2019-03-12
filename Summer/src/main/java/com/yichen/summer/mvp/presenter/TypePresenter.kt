@@ -37,6 +37,7 @@ class TypePresenter @Inject constructor() : TypeContract.Presenter, TypeService.
         mView.showSummerInfo(datas, state)
         if (isLoading) {
             mView.hideLoading()
+            isLoading = false
         }
     }
 

@@ -1,7 +1,7 @@
 package com.yichen.summer.ui.activity
 
 import android.content.Intent
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 import com.yichen.common.recyclerview.XRecyclerView
 import com.yichen.common.ui.activity.BaseMvpActivity
@@ -39,7 +39,7 @@ class CommentActivity : BaseMvpActivity<CommentPresenter>(), CommentContract.Vie
 
         mCommentAdapter = CommentAdapter(this)
 
-        commentRecycler.layoutManager = LinearLayoutManager(this)
+        commentRecycler.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
         commentRecycler.adapter = mCommentAdapter
         commentRecycler.isLoadingMoreEnabled = true
         tv_sort_top.isSelected = true

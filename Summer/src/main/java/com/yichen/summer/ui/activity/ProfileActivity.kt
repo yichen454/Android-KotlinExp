@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.graphics.drawable.GradientDrawable
 import android.os.Build
 import android.os.Bundle
-import android.support.design.widget.AppBarLayout
+import com.google.android.material.appbar.AppBarLayout
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 import com.yichen.common.ui.activity.BaseMvpActivity
 import com.yichen.common.ui.fragment.BaseFragment
