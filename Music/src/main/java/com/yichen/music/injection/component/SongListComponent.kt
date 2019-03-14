@@ -3,6 +3,7 @@ package com.yichen.music.injection.component
 import com.yichen.common.injection.component.ActivityComponent
 import com.yichen.common.injection.scope.PerComponentScope
 import com.yichen.music.injection.module.SongListModule
+import com.yichen.music.ui.activity.SongListDetailActivity
 import com.yichen.music.ui.fragment.SongListFragment
 import dagger.Component
 
@@ -14,5 +15,7 @@ import dagger.Component
 interface SongListComponent {
 
     fun inject(fragment: SongListFragment)
+
+    fun inject(activity:SongListDetailActivity)
 
 }

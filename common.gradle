@@ -72,7 +72,12 @@ ext {
                   'libGlide'                    : "com.github.bumptech.glide:glide:$versions.glide",
 
                   'libBottomBar'                : "com.roughike:bottom-bar:$versions.bottom_bar",
-                  'libVideoPlayer'              : "com.shuyu:GSYVideoPlayer:$versions.gsy_video_player"
+                  'libVideoPlayer'              : "com.shuyu:gsyVideoPlayer-java:$versions.gsy_video_player",
+                  'libVideoPlayerSo_armv5'      : "com.shuyu:gsyVideoPlayer-armv5:$versions.gsy_video_player",
+                  'libVideoPlayerSo_armv7a'     : "com.shuyu:gsyVideoPlayer-armv7a:$versions.gsy_video_player",
+                  'libVideoPlayerSo_arm64'      : "com.shuyu:gsyVideoPlayer-arm64:$versions.gsy_video_player",
+                  'libVideoPlayerSo_x64'        : "com.shuyu:gsyVideoPlayer-x64:$versions.gsy_video_player",
+                  'libVideoPlayerSo_x86'        : "com.shuyu:gsyVideoPlayer-x86:$versions.gsy_video_player",
     ]
 
 }

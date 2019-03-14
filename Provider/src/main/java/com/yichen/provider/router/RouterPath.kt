@@ -11,4 +11,9 @@ object RouterPath {
     class Summer {
         companion object
     }
+
+    //云音乐模块
+    class Music {
+        companion object
+    }
 }

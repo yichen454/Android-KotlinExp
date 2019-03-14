@@ -1,5 +1,6 @@
 package com.yichen.music.ui.fragment
 
+import android.content.Intent
 import androidx.recyclerview.widget.GridLayoutManager
 import com.trello.rxlifecycle2.components.support.RxFragment
 import com.yichen.common.recyclerview.XRecyclerView
@@ -12,6 +13,7 @@ import com.yichen.music.injection.component.DaggerMvListComponent
 import com.yichen.music.injection.module.MvListModule
 import com.yichen.music.mvp.MvListContract
 import com.yichen.music.mvp.presenter.MvListPresenter
+import com.yichen.music.ui.activity.PlayMvActivity
 import kotlinx.android.synthetic.main.music_fragment_songlist.*
 
 /**
@@ -31,7 +33,7 @@ class MvFragment : BaseMvpFragment<MvListPresenter>(), MvListContract.View {
     }
 
     override fun initView() {
-        mRecyclerView.layoutManager = androidx.recyclerview.widget.GridLayoutManager(activity, 2)
+        mRecyclerView.layoutManager = GridLayoutManager(activity, 2)
         mAdapter = MvListAdapter(activity!!)
         mRecyclerView.adapter = mAdapter
     }
@@ -59,6 +61,14 @@ class MvFragment : BaseMvpFragment<MvListPresenter>(), MvListContract.View {
                 }
             }
         })
+
+        mAdapter.setOnItemClickListener { _, item, _ ->
+            item as MusicMvListEntity
+            val intent = Intent(activity, PlayMvActivity::class.java)
+            intent.putExtra(Constant.KEY_TITLE,item.name)
+            intent.putExtra(Constant.KEY_URL,item.url)
+            startActivity(intent)
+        }
     }
 
     override fun showMvList(datas: List<MusicMvListEntity>, state: Int) {

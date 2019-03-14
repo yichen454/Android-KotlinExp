@@ -10,5 +10,7 @@ object MusicApi {
 
     const val GET_SONG_LIST = "hotSongList"
 
+    const val GET_SONG_LIST_DETAIL = "songList"
+
     const val GET_MV_LIST = "topMvList"
 }

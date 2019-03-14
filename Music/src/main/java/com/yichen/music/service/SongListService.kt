@@ -1,5 +1,6 @@
 package com.yichen.music.service
 
+import com.yichen.music.entity.MusicSongListDetailEntity
 import com.yichen.music.entity.MusicSongListEntity
 
 /**
@@ -16,6 +17,19 @@ interface SongListService {
 
     interface GetSongListCallBack {
         fun onSongList(datas: List<MusicSongListEntity>)
+
+        fun onFail()
+    }
+
+    fun getSongListDetail(
+        viewContext: Any,
+        id: Long,
+        callBack: GetSongListDetailCallBack
+    )
+
+
+    interface GetSongListDetailCallBack {
+        fun onDetail(data: MusicSongListDetailEntity)
 
         fun onFail()
     }

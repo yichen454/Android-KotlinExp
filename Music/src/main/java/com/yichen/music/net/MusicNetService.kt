@@ -2,6 +2,7 @@ package com.yichen.music.net
 
 import com.yichen.music.entity.MusicBaseEntity
 import com.yichen.music.entity.MusicMvListEntity
+import com.yichen.music.entity.MusicSongListDetailEntity
 import com.yichen.music.entity.MusicSongListEntity
 import io.reactivex.Observable
 import retrofit2.http.GET
@@ -14,7 +15,10 @@ interface MusicNetService {
 
     @GET(MusicApi.GET_SONG_LIST)
     fun getSongList(@QueryMap params: Map<String, String>): Observable<MusicBaseEntity<List<MusicSongListEntity>>>
-    
+
+    @GET(MusicApi.GET_SONG_LIST_DETAIL)
+    fun getSongListDetail(@QueryMap params: Map<String, String>): Observable<MusicBaseEntity<MusicSongListDetailEntity>>
+
     @GET(MusicApi.GET_MV_LIST)
     fun getMvList(@QueryMap params: Map<String, String>): Observable<MusicBaseEntity<List<MusicMvListEntity>>>
 }
