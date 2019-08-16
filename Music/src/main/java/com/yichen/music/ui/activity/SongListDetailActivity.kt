@@ -1,5 +1,10 @@
 package com.yichen.music.ui.activity
 
+import android.content.ComponentName
+import android.content.Context
+import android.content.Intent
+import android.content.ServiceConnection
+import android.os.IBinder
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.appbar.AppBarLayout
@@ -14,6 +19,8 @@ import com.yichen.music.injection.component.DaggerSongListComponent
 import com.yichen.music.injection.module.SongListModule
 import com.yichen.music.mvp.SongListContract
 import com.yichen.music.mvp.presenter.SongListPresenter
+import com.yichen.music.service.MusicPlayService
+import com.yichen.music.service.MusicServiceStub
 import kotlinx.android.synthetic.main.music_activity_songlist_detail.*
 import kotlinx.android.synthetic.main.music_head_songlist_detail.*
 
@@ -25,6 +32,7 @@ class SongListDetailActivity : BaseMvpActivity<SongListPresenter>(), SongListCon
     private lateinit var songsAdapter: SongsAdapter
     private lateinit var title: String
     private lateinit var onOffsetChangedListener: AppBarLayout.OnOffsetChangedListener
+    private var mPlayService: MusicPlayService? = null
 
     override fun injectComponent() {
         DaggerSongListComponent.builder()
@@ -32,6 +40,10 @@ class SongListDetailActivity : BaseMvpActivity<SongListPresenter>(), SongListCon
             .songListModule(SongListModule(this))
             .build().inject(this)
         setStatusBar()
+        bindService(
+            Intent(applicationContext, MusicPlayService::class.java),
+            connection, Context.BIND_AUTO_CREATE
+        )
     }
 
     override fun initView() {
@@ -69,6 +81,13 @@ class SongListDetailActivity : BaseMvpActivity<SongListPresenter>(), SongListCon
         headRoot.addOnOffsetChangedListener(onOffsetChangedListener)
 
         iv_back.setOnClickListener { finish() }
+
+        songsAdapter.setOnItemClickListener { _, item, _ ->
+            item as MusicSongListDetailEntity.SongEntity
+            Log.e("sss", item.url)
+            mPlayService?.playMusicById(item.url)
+        }
+
     }
 
     override fun showSongList(datas: List<MusicSongListEntity>) {
@@ -82,9 +101,25 @@ class SongListDetailActivity : BaseMvpActivity<SongListPresenter>(), SongListCon
         return this
     }
 
+    override fun onBackPressed() {
+        mPlayService?.stop()
+        super.onBackPressed()
+    }
+
 
     override fun onDestroy() {
         headRoot.removeOnOffsetChangedListener(onOffsetChangedListener)
+        unbindService(connection)
         super.onDestroy()
+    }
+
+    private val connection = object : ServiceConnection {
+        override fun onServiceDisconnected(name: ComponentName) {
+
+        }
+
+        override fun onServiceConnected(name: ComponentName?, service: IBinder) {
+            mPlayService = (service as MusicServiceStub).getService()
+        }
     }
 }

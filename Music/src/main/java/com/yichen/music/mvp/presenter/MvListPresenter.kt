@@ -2,7 +2,7 @@ package com.yichen.music.mvp.presenter
 
 import com.yichen.music.entity.MusicMvListEntity
 import com.yichen.music.mvp.MvListContract
-import com.yichen.music.service.MvListService
+import com.yichen.music.mvp.service.MvListService
 import javax.inject.Inject
 
 /**

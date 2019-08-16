@@ -1,10 +1,10 @@
-package com.yichen.music.service.impl
+package com.yichen.music.mvp.service.impl
 
 import com.yichen.music.entity.MusicMvListEntity
 import com.yichen.music.net.MusicApi
 import com.yichen.music.net.MusicApiClient
 import com.yichen.music.net.MusicSubscriber
-import com.yichen.music.service.MvListService
+import com.yichen.music.mvp.service.MvListService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject

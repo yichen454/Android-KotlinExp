@@ -4,6 +4,7 @@
     <application>
         <activity android:name=".ui.activity.SongListDetailActivity"/>
         <activity android:name=".ui.activity.PlayMvActivity"/>
+        <service android:name=".service.MusicPlayService"/>
     </application>
 
 </manifest>

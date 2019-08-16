@@ -1,4 +1,4 @@
-package com.yichen.summer.service
+package com.yichen.summer.mvp.service
 
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 import com.trello.rxlifecycle2.components.support.RxFragment

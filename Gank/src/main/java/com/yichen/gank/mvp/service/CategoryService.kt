@@ -1,4 +1,4 @@
-package com.yichen.gank.service
+package com.yichen.gank.mvp.service
 
 import com.trello.rxlifecycle2.components.support.RxFragment
 import com.yichen.gank.entity.GankItemData

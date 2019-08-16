@@ -1,4 +1,4 @@
-package com.yichen.summer.service.impl
+package com.yichen.summer.mvp.service.impl
 
 import android.text.TextUtils
 import com.trello.rxlifecycle2.android.ActivityEvent
@@ -9,7 +9,7 @@ import com.yichen.summer.common.Constant
 import com.yichen.summer.entity.SummerInfoData
 import com.yichen.summer.net.SummerApiClient
 import com.yichen.summer.net.SummerSubscriber
-import com.yichen.summer.service.TypeService
+import com.yichen.summer.mvp.service.TypeService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject

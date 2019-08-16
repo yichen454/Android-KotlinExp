@@ -1,8 +1,8 @@
 package com.yichen.summer.injection.module
 
 import com.yichen.summer.mvp.UserContract
-import com.yichen.summer.service.UserService
-import com.yichen.summer.service.impl.UserServiceImpl
+import com.yichen.summer.mvp.service.UserService
+import com.yichen.summer.mvp.service.impl.UserServiceImpl
 import dagger.Module
 import dagger.Provides
 

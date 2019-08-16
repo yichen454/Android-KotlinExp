@@ -24,5 +24,6 @@
         <activity android:name=".ui.activity.PlayMvActivity"
                   android:launchMode="singleTask"
                   android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <service android:name=".service.MusicPlayService"/>
     </application>
 </manifest>

@@ -2,7 +2,7 @@ package com.yichen.summer.mvp.presenter
 
 import com.yichen.summer.entity.SummerCommentData
 import com.yichen.summer.mvp.CommentContract
-import com.yichen.summer.service.CommentService
+import com.yichen.summer.mvp.service.CommentService
 import javax.inject.Inject
 
 /**

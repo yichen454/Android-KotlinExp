@@ -1,11 +1,11 @@
-package com.yichen.gank.service.impl
+package com.yichen.gank.mvp.service.impl
 
 import com.trello.rxlifecycle2.android.FragmentEvent
 import com.trello.rxlifecycle2.components.support.RxFragment
 import com.yichen.gank.entity.GankItemData
 import com.yichen.gank.net.GankApiClient
 import com.yichen.gank.net.GankSubscriber
-import com.yichen.gank.service.CategoryService
+import com.yichen.gank.mvp.service.CategoryService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject

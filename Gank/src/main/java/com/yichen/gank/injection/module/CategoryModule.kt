@@ -1,8 +1,8 @@
 package com.yichen.gank.injection.module
 
 import com.yichen.gank.mvp.CategoryContract
-import com.yichen.gank.service.CategoryService
-import com.yichen.gank.service.impl.CategoryServiceImpl
+import com.yichen.gank.mvp.service.CategoryService
+import com.yichen.gank.mvp.service.impl.CategoryServiceImpl
 import dagger.Module
 import dagger.Provides
 

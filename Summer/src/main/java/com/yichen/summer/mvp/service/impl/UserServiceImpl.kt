@@ -1,11 +1,11 @@
-package com.yichen.summer.service.impl
+package com.yichen.summer.mvp.service.impl
 
 import com.trello.rxlifecycle2.android.ActivityEvent
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 import com.yichen.summer.entity.SummerUserData
 import com.yichen.summer.net.SummerApiClient
 import com.yichen.summer.net.SummerSubscriber
-import com.yichen.summer.service.UserService
+import com.yichen.summer.mvp.service.UserService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject

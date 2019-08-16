@@ -2,7 +2,7 @@ package com.yichen.summer.mvp.presenter
 
 import com.yichen.summer.entity.SummerInfoData
 import com.yichen.summer.mvp.TypeContract
-import com.yichen.summer.service.TypeService
+import com.yichen.summer.mvp.service.TypeService
 import javax.inject.Inject
 
 /**

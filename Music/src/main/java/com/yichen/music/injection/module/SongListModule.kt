@@ -1,8 +1,8 @@
 package com.yichen.music.injection.module
 
 import com.yichen.music.mvp.SongListContract
-import com.yichen.music.service.SongListService
-import com.yichen.music.service.impl.SongListServiceImpl
+import com.yichen.music.mvp.service.SongListService
+import com.yichen.music.mvp.service.impl.SongListServiceImpl
 import dagger.Module
 import dagger.Provides
 

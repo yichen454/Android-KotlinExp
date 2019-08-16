@@ -2,7 +2,7 @@ package com.yichen.gank.mvp.presenter
 
 import com.yichen.gank.entity.GankItemData
 import com.yichen.gank.mvp.CategoryContract
-import com.yichen.gank.service.CategoryService
+import com.yichen.gank.mvp.service.CategoryService
 import javax.inject.Inject
 
 /**

@@ -1,8 +1,8 @@
 package com.yichen.summer.injection.module
 
 import com.yichen.summer.mvp.TypeContract
-import com.yichen.summer.service.impl.TypeServiceImpl
-import com.yichen.summer.service.TypeService
+import com.yichen.summer.mvp.service.impl.TypeServiceImpl
+import com.yichen.summer.mvp.service.TypeService
 import dagger.Module
 import dagger.Provides
 

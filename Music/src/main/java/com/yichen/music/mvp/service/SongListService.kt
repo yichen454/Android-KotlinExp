@@ -1,4 +1,4 @@
-package com.yichen.music.service
+package com.yichen.music.mvp.service
 
 import com.yichen.music.entity.MusicSongListDetailEntity
 import com.yichen.music.entity.MusicSongListEntity

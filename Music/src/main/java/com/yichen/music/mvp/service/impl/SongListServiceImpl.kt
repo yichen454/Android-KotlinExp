@@ -1,4 +1,4 @@
-package com.yichen.music.service.impl
+package com.yichen.music.mvp.service.impl
 
 import com.trello.rxlifecycle2.android.ActivityEvent
 import com.trello.rxlifecycle2.android.FragmentEvent
@@ -9,7 +9,7 @@ import com.yichen.music.entity.MusicSongListEntity
 import com.yichen.music.net.MusicApi
 import com.yichen.music.net.MusicApiClient
 import com.yichen.music.net.MusicSubscriber
-import com.yichen.music.service.SongListService
+import com.yichen.music.mvp.service.SongListService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject

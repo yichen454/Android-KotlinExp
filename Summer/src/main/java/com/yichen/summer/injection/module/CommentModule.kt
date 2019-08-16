@@ -1,8 +1,8 @@
 package com.yichen.summer.injection.module
 
 import com.yichen.summer.mvp.CommentContract
-import com.yichen.summer.service.CommentService
-import com.yichen.summer.service.impl.CommentServiceImpl
+import com.yichen.summer.mvp.service.CommentService
+import com.yichen.summer.mvp.service.impl.CommentServiceImpl
 import dagger.Module
 import dagger.Provides
 
